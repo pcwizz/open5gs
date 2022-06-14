@@ -46,6 +46,7 @@ if host_system == 'darwin'
     libsctp_sources += files('ogs-usrsctp.c')
     libsctp_conf.set('HAVE_USRSCTP', 1)
 else
+    libsctp_conf.set('HAVE_NETINET_SCTP_H', 1)
     sctp_dep = cc.find_library('sctp', required : false)
     libsctp_sources += files('ogs-lksctp.c')
 endif
