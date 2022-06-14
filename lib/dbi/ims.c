@@ -19,6 +19,7 @@
 
 #include "ogs-dbi.h"
 
+#ifdef OGS_DBI_WITH_MONGODB
 int ogs_dbi_msisdn_data(
         char *imsi_or_msisdn_bcd, ogs_msisdn_data_t *msisdn_data)
 {
@@ -212,3 +213,15 @@ out:
 
     return rv;
 }
+#else /* OGS_DBI_WITH_MONGODB */
+int ogs_dbi_msisdn_data(
+        char *imsi_or_msisdn_bcd, ogs_msisdn_data_t *msisdn_data)
+{
+    return OGS_ERROR;
+}
+
+int ogs_dbi_ims_data(char *supi, ogs_ims_data_t *ims_data)
+{
+    return OGS_ERROR;
+}
+#endif

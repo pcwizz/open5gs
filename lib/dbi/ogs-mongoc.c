@@ -17,11 +17,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <mongoc.h>
-
 #include "ogs-dbi.h"
 
 int __ogs_dbi_domain;
+
+#ifdef OGS_DBI_WITH_MONGODB
+#include <mongoc.h>
+
 
 static ogs_mongoc_t self;
 
@@ -251,3 +253,28 @@ int ogs_dbi_poll_change_stream(void)
     return OGS_ERROR;
 #endif
 }
+
+#else /* OGS_DBI_WITH_MONGODB */
+int ogs_mongoc_init(const char *db_uri)
+{
+    return OGS_ERROR;
+}
+
+void ogs_mongoc_final(void)
+{
+}
+
+ogs_mongoc_t *ogs_mongoc(void)
+{
+    return NULL;
+}
+
+int ogs_dbi_init(const char *db_uri)
+{
+    return OGS_OK;
+}
+
+void ogs_dbi_final()
+{
+}
+#endif

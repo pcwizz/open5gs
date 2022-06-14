@@ -19,6 +19,7 @@
 
 #include "ogs-dbi.h"
 
+#ifdef OGS_DBI_WITH_MONGODB
 int ogs_dbi_auth_info(char *supi, ogs_dbi_auth_info_t *auth_info)
 {
     int rv = OGS_OK;
@@ -790,3 +791,31 @@ out:
 
     return rv;
 }
+#else
+int ogs_dbi_auth_info(char *supi, ogs_dbi_auth_info_t *auth_info)
+{
+    return OGS_ERROR;
+}
+
+int ogs_dbi_update_sqn(char *supi, uint64_t sqn)
+{
+    return OGS_ERROR;
+}
+
+int ogs_dbi_update_imeisv(char *supi, char *imeisv)
+{
+    return OGS_ERROR;
+}
+
+int ogs_dbi_increment_sqn(char *supi)
+{
+	return OGS_ERROR;
+}
+
+int ogs_dbi_subscription_data(char *supi,
+        ogs_subscription_data_t *subscription_data)
+{
+    return OGS_ERROR;
+}
+
+#endif /* OGS_DBI_WITH_MONGODB */
