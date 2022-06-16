@@ -1,5 +1,36 @@
 db_uri: mongodb://localhost/open5gs
-
+db_json:
+  default:
+    af:
+      ambr:
+        up: 10000
+        down: 10000
+      gmbr:
+        up: 1000
+        down: 1000
+      qci: 4
+    normal:
+      ambr:
+        up: 10000
+        down: 10000
+      gmbr:
+        up: 10000
+        down: 10000
+      qci: 5
+  charging_profiles:
+    af:
+      - 1
+      - 2
+      - 3
+      - 4
+    normal:
+      - 1
+      - 2
+      - 3
+      - 4
+    dir:
+      normal: "/tmp/profiles"
+      af: "/tmp/profiles_af"
 #
 #  o Set OGS_LOG_INFO to all domain level
 #   - If `level` is omitted, the default level is OGS_LOG_INFO)
