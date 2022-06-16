@@ -507,6 +507,21 @@ out:
 int ogs_dbi_session_data(char *supi, ogs_s_nssai_t *s_nssai, char *dnn,
         ogs_session_data_t *session_data)
 {
-    return OGS_ERROR;
+	ogs_session_t *session = &session_data->session;
+	ogs_qos_t *qos = &session->qos;
+
+	session->name = ogs_strndup("staticprof", strlen("foobar"));
+	/* check if have to set type */
+	session->ambr.downlink = 300 * 1024 * 1024;
+	session->ambr.uplink = 150 * 1024 * 1024;
+
+	session->qos.index = OGS_QOS_INDEX_5;
+	session->qos.arp.priority_level = 1;
+	session->qos.mbr.downlink = 10;
+	session->qos.mbr.uplink = 10;
+	session->qos.gbr.downlink = 10;
+	session->qos.gbr.uplink = 10;
+
+    return OGS_OK;
 }
 #endif /* OGS_DBI_WITH_MONGODB */
