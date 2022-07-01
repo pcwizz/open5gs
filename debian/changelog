@@ -220,6 +220,14 @@ open5gs (2.4.9~bionic) bionic; urgency=medium
 
  -- Sukchan Lee <acetcom@gmail.com>  Mon, 25 Jul 2022 20:45:33 +0900
 
+open5gs (2.4.8+nmu1~sysmocom) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * WIP pcrf_simple branch 1e33b7dd373908241429c2bdb1e96c19bf551e02
+    rebased on latest release
+
+ -- Oliver Smith <osmith@sysmocom.de>  Fri, 01 Jul 2022 15:38:05 +0200
+
 open5gs (2.4.8) unstable; urgency=medium
 
   * Bug Fixed
