@@ -189,8 +189,14 @@ int esm_handle_information_response(mme_sess_t *sess,
 
     if (rsp->presencemask &
             OGS_NAS_EPS_ESM_INFORMATION_RESPONSE_ACCESS_POINT_NAME_PRESENT) {
-        sess->session = mme_session_find_by_apn(
+        ogs_session_t *session = mme_session_find_by_apn(
                             mme_ue, rsp->access_point_name.apn);
+        if (session) {
+            sess->session = session;
+        } else {
+            ogs_error("    APN[%s] not found, using default!", rsp->access_point_name.apn);
+            sess->session = mme_default_session(mme_ue);
+        }
     }
 
     if (rsp->presencemask &

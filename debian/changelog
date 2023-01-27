@@ -220,6 +220,12 @@ open5gs (2.4.9~bionic) bionic; urgency=medium
 
  -- Sukchan Lee <acetcom@gmail.com>  Mon, 25 Jul 2022 20:45:33 +0900
 
+open5gs (2.4.8+nmu3~sysmocom) unstable; urgency=medium
+
+  * Use default APN in case the one from ESM info resp is not found
+
+ -- Daniel Willmann <dwillmann@sysmocom.de>  Fri, 27 Jan 2023 12:15:23 +0100
+
 open5gs (2.4.8+nmu2~sysmocom) unstable; urgency=medium
 
   * Remove mongodb dependency for pcrf
