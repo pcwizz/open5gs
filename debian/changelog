@@ -220,6 +220,12 @@ open5gs (2.4.9~bionic) bionic; urgency=medium
 
  -- Sukchan Lee <acetcom@gmail.com>  Mon, 25 Jul 2022 20:45:33 +0900
 
+open5gs (2.4.8+nmu5~sysmocom) unstable; urgency=medium
+
+  * d/postinst: don't restart service in chroot
+
+ -- Oliver Smith <osmith@sysmocom.de>  Mon, 30 Jan 2023 09:42:49 +0100
+
 open5gs (2.4.8+nmu4~sysmocom) unstable; urgency=medium
 
   * Fix APN selection
